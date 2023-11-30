@@ -1,0 +1,179 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body{
+    background: url(../imgs/fondoimg/fondo2.jpeg);
+}
+
+.icon{
+    line-height: 80px;
+    position: relative;
+    left: 20px;
+    font-size: 2rem;
+
+}
+
+nav{
+    background:  transparent;
+    height: 80px;
+    width: 100%;
+}
+
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+#alert {
+    padding: 15px;
+    margin: 15px auto; /* Centrado horizontal */
+    border-radius: 8px;
+    font-weight: bold;
+    color: #000000;
+    display: none; /* Inicialmente oculto */
+    width: 80%; /* Ancho reducido a un 80% */
+    box-sizing: border-box;
+    text-align: center;
+    background: linear-gradient(45deg, #f8fff8, #f6fbff); /* Fondo degradado */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: background 0.3s, color 0.3s;
+    margin-left: 10%; /* Ajusta según sea necesario */
+    margin-right: 10%; /* Ajusta según sea necesario */
+}
+
+#alert.show {
+    display: inline-block; /* Mostrar solo cuando tiene la clase 'show' */
+}
+
+#alert.success {
+    background: linear-gradient(45deg, #4CAF50, #2E7D32); /* Fondo degradado verde */
+}
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+
+nav ul a{
+    color: white;
+    font-size: 18px;
+    padding: 7px 20px;
+    text-transform: uppercase;
+}
+
+nav ul a:hover{
+    color: #8a0e0e;
+}
+
+li{
+    position: relative;
+    transition: 0.5s;
+    cursor: pointer;
+    line-height: 80px;
+}
+
+li::after{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 3px;
+    top: 70%;
+    left: 0;
+    transition: transform 0.5s;
+    transform: scaleX(0);
+    transform-origin: right;
+    background-color:  #ce1111;
+}
+
+li:hover::after{
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+
+
+
+.solicitud{
+    width: 1074px;
+    height: 600px;
+    background: rgb(35 32 32 / 50%);
+    padding: 100px;
+    margin: 5px auto;
+    border-radius: 10px;
+    backdrop-filter: blur(15px);
+    position: relative;
+    top: 30px;
+    border: 2px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.solicitud input{
+    width: 80%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-bottom: 1px solid #8a0e0e;
+    outline: none;
+    background: transparent;
+}
+
+.solicitud label{
+    top: 0;
+    left: 0;
+    padding-top: 15px;
+    padding-bottom: 1px;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    font-size: 1.2em;
+    text-align: center;
+}
+.first {
+    text-align: center;
+    padding-bottom: 90px;
+}
+
+.second{
+    text-align: center;
+}
+
+
+
+/* botón siguiente*/
+.button{
+    background-color: #8a0e0e;
+    color: #fff;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 1128px;
+    margin-top: 35px;
+
+}
+
+.button:hover {
+    background-color: #af0606;
+}
+
+.icon1{
+    padding: 20px;
+    font-size: 50px;
+}
+
+.icon2{
+    padding: 20px;
+    font-size: 50px;
+
+}
+
+

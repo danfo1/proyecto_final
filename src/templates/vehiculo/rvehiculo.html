@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registro de vehiculos </title>
+    <link rel="stylesheet" href="../../static/css/editarorden.css">
+</head>
+<body>
+
+    <h1>Formulario de Registro de Vehículo</h1>
+    <form class="form" action="/vehiculo.registro_vehiculo" method="POST">
+        <label for="modelo">Modelo:</label>
+        <input type="year" name="modelo" min="1886" max="3000" step="1" required>
+
+        <label for="marca">Marca:</label>
+        <select id="marca" name="marca" required>
+            <option value="Acura">Acura</option>
+            <option value="Alfa">Alfa</option>
+            <option value="Romeo">Romeo</option>
+            <option value="Audi">Audi</option>
+            <option value="Baic">Baic</option>
+            <option value="BAW">BAW</option>
+            <option value="BMW">BMW</option>
+            <option value="Brilliance">Brilliance</option>
+            <option value="BYD">BYD</option>
+            <option value="Cadillac">Cadillac</option>
+            <option value="Changan">Changan</option>
+            <option value="Changhe">Changhe</option>
+            <option value="Chery">Chery</option>
+            <option value="Chevrolet">Chevrolet</option>
+            <option value="Chrysler">Chrysler</option>
+            <option value="Citroën">Citroën</option>
+            <option value="Daihatsu">Daihatsu</option>
+            <option value="DFSK">DFSK</option>
+            <option value="Dodge">Dodge</option>
+            <option value="Dongfeng">Dongfeng</option>
+            <option value="DS">DS</option>
+            <option value="FAW">FAW</option>
+            <option value="Ferrari">Ferrari</option>
+            <option value="Fiat">Fiat</option>
+            <option value="Ford">Ford</option>
+            <option value="Foton">Foton</option>
+            <option value="Geely">Geely</option>
+            <option value="GMC">GMC</option>
+            <option value="Gonow">Gonow</option>
+            <option value="Great Wall">Great Wall</option>
+            <option value="Haima">Haima</option>
+            <option value="Haval">Haval</option>
+            <option value="Honda">Honda</option>
+            <option value="Hummer">Hummer</option>
+            <option value="Hyundai">Hyundai</option>
+            <option value="Infiniti">Infiniti</option>
+            <option value="JAC">JAC</option>
+            <option value="Jaguar">Jaguar</option>
+            <option value="Jeep">Jeep</option>
+            <option value="Kenbo">Kenbo</option>
+            <option value="Kia">Kia</option>
+            <option value="Land Rover">Land Rover</option>
+            <option value="Lexus">Lexus</option>
+            <option value="Lifan">Lifan</option>
+            <option value="Mahindra">Mahindra</option>
+            <option value="Maserati">Maserati</option>
+            <option value="Maxus">Maxus</option>
+            <option value="Mazda">Mazda</option>
+            <option value="Mercedes-Benz">Mercedes-Benz</option>
+            <option value="MG">MG</option>
+            <option value="Mini">Mini</option>
+            <option value="Mitsubishi">Mitsubishi</option>
+            <option value="Nissan">Nissan</option>
+            <option value="Opel">Opel</option>
+            <option value="Peugeot">Peugeot</option>
+            <option value="Porsche">Porsche</option>
+            <option value="RAM">RAM</option>
+            <option value="Renault">Renault</option>
+            <option value="SEAT">SEAT</option>
+            <option value="Skoda">Skoda</option>
+            <option value="Ssangyong">Ssangyong</option>
+            <option value="Subaru">Subaru</option>
+            <option value="Suzuki">Suzuki</option>
+            <option value="Toyota">Toyota</option>
+            <option value="UAZ">UAZ</option>
+            <!-- Agrega las demás opciones de marca aquí -->
+        </select><br><br>
+
+        <label for="color">Color:</label>
+        <select id="color" name="color" required>
+            <option value="blanco">blanco</option>
+                    <option value="negro">negro</option>
+                    <option value="gris">gris</option>
+                    <option value="plateado">plateado</option>
+                    <option value="rojo">rojo</option>
+                    <option value="vinotinto">vinotinto</option>
+                    <option value="verde">verde</option>
+                    <option value="azul">azul</option>
+                    <option value="naranja">naranja</option>
+                    <option value="amarillo">amarillo</option>
+            <!-- Agrega las demás opciones de color aquí -->
+        </select><br><br>
+
+        <label for="placa">Placa:</label>
+        <input type="text" id="placa" name="placa" maxlength="10" required><br><br>
+
+        <label for="cilindraje">Cilindraje:</label>
+        <input type="number" id="cilindraje" name="cilindraje" required><br><br>
+
+        <label for="kilometraje">Kilometraje:</label>
+        <input type="number" id="kilometraje" name="kilometraje" required><br><br>
+
+        <label for="referencia">Referencia:</label>
+        <select id="referencia" name="referencia" required>
+            <option value="" disabled selected></option>
+            <option value="Deportivo">Deportivo</option>
+            <option value="Familiar">Familiar</option>
+            <option value="Clásico">Clásico</option> 
+            <!-- Agrega las demás opciones de referencia aquí -->
+        </select><br><br>
+
+        <label for="tipo_combustible">Tipo de Combustible:</label>
+        <select id="tipo_combustible" name="tipo_combustible" required>
+            <option value="" disabled selected></option>
+                    <option value="Gasolina">Gasolina</option>
+                    <option value="Diésel">Diésel</option>
+                    <option value="Gas">Gas</option> 
+                    <option value="Híbrido">Híbrido</option>
+                    <option value="Eléctricos">Eléctricos</option>
+            <!-- Agrega las demás opciones de tipo de combustible aquí -->
+        </select><br><br>
+
+        <input type="submit" value="Registrar Vehículo">
+    </form>
+</body>
+</html>

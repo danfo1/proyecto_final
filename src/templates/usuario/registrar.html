@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/registrar.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="form-title">Registrar Usuario</h1>
+
+        <form class="form" action="/usuario.registrar" method="POST">
+            <div class="main-user-info">
+                <div class="user-input-box">
+                    <label for="nombres">Nombres</label>
+                    <input type="text" id="nombres" name="nombres" placeholder="Ingrese sus nombres"/>
+                </div>
+
+                <div class="user-input-box">
+                    <label for="apellidos">Apellidos</label>
+                    <input type="text" id="apellidos" name="apellidos" placeholder="Ingrese sus apellidos"/>
+                </div>
+
+                <div class="menus">      
+                     <label for="tipo_documento">Tipo de documento</label>
+                     <select name="tipo_documento" id="tipo_documento">
+                        <option value="" disabled selected>Tipo de documento</option>
+                        <option value="C.C">C.C</option>
+                        <option value="T.I">T.I</option>
+                        <option value="C.E">C.E</option>
+                        <option value="NIT">NIT</option>
+                        <option value="DIG">DIG</option>
+                    </select>
+                </div>
+
+                <div class="user-input-box">
+                    <label for="documento">Número documento</label>
+                    <input type="text" id="documento" name="num_documento" placeholder="Ingrese su número de documento"/>
+                </div>
+
+                <div class="user-input-box">
+                    <label for="correo">Correo electrónico</label>
+                    <input type="email" id="correo" name="correo" size="30" required placeholder="Ingrese su correo electrónico"/>
+                </div>
+
+                <div class="user-input-box">
+                    <label for="telefono">Teléfono</label>
+                    <input type="text" id="telefono" name="telefono" placeholder="Ingrese su número de teléfono"/>
+                </div>
+
+                <div class="user-input-box">
+                    <label for="telefono_respaldo">Teléfono de respaldo</label>
+                    <input type="text" id="telefono_respaldo" name="telefono_respaldo" placeholder="Ingrese su número de teléfono de respaldo"/>
+                </div>
+
+                <div class="menus">
+                    <label for="estado">Estado</label>
+                    <select name="estado" id="estado">
+                        <option value="" disabled selected>Estado</option>
+                        <option value="Activo">Activo</option>
+                        <option value="Inactivo">Inactivo</option>
+                    </select>
+                </div>
+                
+                <div class="user-input-box">
+                    <label for="usuario">Nombre de usuario</label>
+                    <input type="text" id="usuario" name="usuario" placeholder="Ingrese el nombre de usuario"/>
+                </div>
+
+                <div class="user-input-box">
+                    <label for="contrasena">Contraseña</label>
+                    <input type="password" id="contrasena" name="contrasena" placeholder="Ingrese contraseña"/>
+                </div>
+
+                <div class="user-input-box">
+                    <label for="rol">ID Rol</label>
+                    <input type="text" id="rol" name="rol" placeholder="Ingrese el ID del rol"/>
+                </div>
+            </div>
+
+            <div class="form-submit-btn">
+                <input type="submit" value="Registrar" id="btn">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

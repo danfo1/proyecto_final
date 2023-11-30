@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Usuario</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/editar.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="form-title">Actualizar Usuario</h1>
+
+        <form class="form" action="{{ url_for('usuario.editar', idusu=data.idusu) }}" method="post">
+            <div class="main-user-info">
+                
+                <div class="user-input-box">
+                    <label for="nombres">Nombres</label>
+                    <input type="text" id="nombres" name="nombres" placeholder="Ingrese sus nombres" value="{{ data.nombres }}" required/>
+                </div>
+
+                <div class="user-input-box">
+                    <label for="apellidos">Apellidos</label>
+                    <input type="text" id="apellidos" name="apellidos" placeholder="Ingrese sus Apellidos" value="{{ data.apellidos }}" required/>
+                </div>
+
+                <!-- Menú desplegable para seleccionar tipo de documento -->
+                <div class="menus">      
+                    <label for="tipo_documento">Tipo de documento</label>
+                    <select name="tipo_documento" id="tipo_documento" required>
+                        <option value="C.C" {% if data.tipo_documento == 'C.C' %} selected {% endif %}>C.C</option>
+                        <option value="T.I" {% if data.tipo_documento == 'T.I' %} selected {% endif %}>T.I</option>
+                        <option value="C.E" {% if data.tipo_documento == 'C.E' %} selected {% endif %}>C.E</option>
+                        <option value="NIT" {% if data.tipo_documento == 'NIT' %} selected {% endif %}>NIT</option>
+                        <option value="DIG" {% if data.tipo_documento == 'DIG' %} selected {% endif %}>DIG</option>
+                    </select>
+                </div>
+
+                <div class="user-input-box">
+                    <label for="num_documento">Número de documento</label>
+                    <input type="text" id="num_documento" name="num_documento" placeholder="Ingrese su número de documento" value="{{ data.num_documento }}" required/>
+                </div>
+
+                <div class="user-input-box">
+                    <label for="correo">Correo electrónico</label>
+                    <input type="text" id="correo" name="correo" placeholder="Ingrese su correo electrónico" value="{{ data.correo }}" required/>
+                </div>
+
+                <div class="user-input-box">
+                    <label for="telefono">Teléfono</label>
+                    <input type="text" id="telefono" name="telefono" placeholder="Ingrese su número de teléfono" value="{{ data.telefono }}" required/>
+                </div>
+
+                <div class="user-input-box">
+                    <label for="telefono_respaldo">Teléfono de respaldo</label>
+                    <input type="text" id="telefono_respaldo" name="telefono_respaldo" placeholder="Ingrese su número de teléfono de respaldo" value="{{ data.telefono_respaldo }}" required/>
+                </div>
+                
+
+                <!-- Menú desplegable para seleccionar estado -->
+                <div class="menus">
+                    <label for="estado">Estado</label>
+                    <select name="estado" id="estado" required>
+                        <option value="Activo" {% if data.estado == 'Activo' %} selected {% endif %}>Activo</option>
+                        <option value="Inactivo" {% if data.estado == 'Inactivo' %} selected {% endif %}>Inactivo</option>
+                    </select>
+                </div>
+
+                <div class="user-input-box">
+                    <label for="contrasena">Contraseña</label>
+                    <input type="text" id="contrasena" name="contrasena" placeholder="Ingrese contraseña" value="{{ data.contrasena }}" required/>
+                </div>
+
+                <div class="user-input-box">
+                    <label for="nombreusu">Nombre de usuario</label>
+                    <input type="text" id="nombreusu" name="nombreusu" placeholder="Ingrese el nombre de usuario" value="{{ data.nombreusu }}" required/>
+                </div>
+
+                <div class="user-input-box">
+                    <label for="rol">ID de rol</label>
+                    <input type="text" id="rol" name="rol" placeholder="Ingrese el ID de rol" value="{{ data.fk_id_rol }}" required/>
+                </div>
+            </div>
+
+            <div class="form-submit-btn">
+                <input type="submit" value="Actualizar" id="btn">
+            </div>
+
+        </form>
+
+    </div>
+</body>
+</html>

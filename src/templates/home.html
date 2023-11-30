@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MEC-CAR GT</title>
+  <link rel="stylesheet" href="../static/css/home.css">
+  <script src="https://kit.fontawesome.com/82559006af.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <!--VISTA-1-->
+
+    <!--BARRA DE NAVEGACION-->
+    <header class="menu">
+      <div class="ancho">
+        <div class="logo">
+          <img src="../static/imgs/logomec/logo.png"  alt="LOGO MEC-CAR GT" class="logo">
+        </div>
+        <nav>
+          <div class="caja">
+            <a href="#fondocarrusel">Inicio</a>
+            <a href="#fondovista2">Servicios</a>
+            <a href="#fondovista3">Conocenos</a>
+            <a href="./login">Iniciar sesion</a>
+        </div>
+        </nav>
+    </header>
+  
+  
+    <!--IMAGENES CARRUSEL-->
+  <div id="fondocarrusel">
+
+    <div id="contcarrusel">
+      
+      <div class="carrusel" id="element-1">
+        <div class="targetas">
+          <img class="imgs" src="../static/imgs/carrusel/carrusel1.jpg" alt="IMAGEN 1 DEL CARRUSEL">
+        </div>
+        <div class="flechas">
+          <a href="#element-3">
+            <i class="fa-solid fa-chevron-left" style="color: #ffffff;"></i>
+          </a>
+          <a href="#element-2">
+            <i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i>
+          </a>
+          <!--Aqui deberian ir los puntos-->
+          <!--LOS PUNTOS AL ESTAR EN UNA ETIQUETA a SE UNEN CON LAS FLECHAS-->
+          <!--SOLUCION COLOCAR UN ID O CLASE A LOS PUNTOS-->
+          <!--CCS: puede molestar: "position: absolute;" y el "justify-content: space-between;"-->
+          <div class="puntos">
+            <a href="#element-1">•</a>
+            <a href="#element-2">•</a>
+            <a href="#element-3">•</a>
+          </div>
+        </div>
+      </div>
+      <div class="carrusel" id="element-2">
+        <div class="carrusel">
+          <div class="targetas">
+            <img class="imgs" src="../static/imgs/carrusel/carrusel2.jpg" alt="IMAGEN 2 DEL CARRUSEL">
+          </div>
+          <div class="flechas">
+            <a href="#element-1">
+              <i class="fa-solid fa-chevron-left" style="color: #ffffff;"></i>
+            </a>
+            <a href="#element-3">
+              <i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i>
+            </a>
+            <div class="puntos">
+              <a href="#element-1">•</a>
+              <a href="#element-2">•</a>
+              <a href="#element-3">•</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carrusel" id="element-3">
+        <div class="carrusel">
+          <div class="targetas">
+            <img class="imgs" src="../static/imgs/carrusel/carrusel3.jpg" alt="IMAGEN 3 DEL CARRUSEL">
+          </div>
+          <div class="flechas">
+            <a href="#element-2">
+              <i class="fa-solid fa-chevron-left" style="color: #ffffff;"></i>
+            </a>
+            <a href="#element-1">
+              <i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i>
+            </a>
+            <div class="puntos">
+              <a href="#element-1">•</a>
+              <a href="#element-2">•</a>
+              <a href="#element-3">•</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!--BUSAR METER LOS PUNTOS EN EL  CARRUSEL-->
+    <!--<div class="puntos">
+  <a href="#element-1">•</a>
+  <a href="#element-2">•</a>
+  <a href="#element-3">•</a>
+</div>-->
+
+    <!--VISTA-2-->
+    <div id="fondovista2">
+      <!--Visualización sección de servicios-->
+      <div id="contenidos-superiores">
+        <!--Primer targeta-->
+        <div class="cajatl">
+          <div class="cajaimg">
+            <img class="targetaimg" src="../static/imgs/targetas/aceite.png" alt="Imagen 1 - Cambio de aceite">
+          </div>
+          <div class="cajatext">
+            <button class="efectobt" onclick="cambiarImagen(0)">Cambio de aceite</button>
+          </div>
+        </div>
+        <!--Segunda targeta-->
+        <div class="cajatl">
+          <div class="cajaimg">
+            <img class="targetaimg" src="../static/imgs/targetas/suspencion.png" alt="Imagen 2 - Ajustes de suspencion">
+          </div>
+          <div class="cajatext">
+            <button>Ajustes de suspencion</button>
+          </div>
+        </div>
+        <!--Tercera targeta-->
+        <div class="cajatl">
+          <div class="cajaimg">
+            <img class="targetaimg" src="../static/imgs/targetas/motor.jpg" alt="Imagen 3 - Restauracion de motor">
+          </div>
+          <div class="cajatext">
+            <button>Restauracion de motor</button>
+          </div>
+        </div>
+      </div>
+      <!--Targetas inferiores-->
+      <div id="contenidos-inferiores">
+        <!--Cuarta targeta-->
+        <div class="cajatl">
+          <div class="cajaimg">
+            <img class="targetaimg" src="../static/imgs/targetas/mantenimientoprev.png"
+              alt="Imagen 4 - Mantenimiento preventivo">
+          </div>
+          <div class="cajatext" id="textman">
+            <button>Mantenimiento preventivo</button>
+          </div>
+        </div>
+        <!--Quinta targeta-->
+        <div class="cajatl">
+          <div class="cajaimg">
+            <img class="targetaimg" src="../static/imgs/targetas/refrigerante.png" alt="Imagen 5 - Cambio de refrigerante">
+          </div>
+      <div class="cajatext">
+        <button>Cambio de refrigerante</button>
+
+      </div>
+        </div>
+      </div>
+    </div>
+    <!--PARA EL EFECTO DE LA TARGETAS NECESITAMOS UN ARCHIVO JAVASCRIPT-->
+    <script src="../static/javaScript/home.js"></script>
+
+    <!--VISTA-3-->
+  <div id="fondovista3">
+    <div id="conocenos">
+      <div class="izquierda">
+        <!--AQUI SE ENCUENTRA ALOJADO EL MAPA CON LA DIRECCION DE MEC-CAR GT-->
+        <div class="mapa">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.6407731986756!2d-74.07822869031612!3d4.657983695297348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a52bf950655%3A0x2de95c8b15c501af!2sMEC-CAR%20GT!5e0!3m2!1ses-419!2sco!4v1693181012261!5m2!1ses-419!2sco"
+            width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="encu">
+            <a class="encuentranos" href="https://goo.gl/maps/A6xeKfdjfqRRPNxk8" target="_blank">Encuentranos</a>
+          </div>
+        </div>
+      </div>
+      <div class="derecha">
+        <div class="text">
+          <h4>Dentro del horario establecido, siempre podrán encontrar a técnicos y asesores interesados en ayudar y brindar el mejor servicio hacia los clientes dentro del sector denominado 7 de agosto de Bogotá, Colombia.
+          </h4>
+          <div class="colum">
+            <li>Lun:</li>
+            <li>8:00–18:00</li>
+              <li>Mié:</li>
+              <li>8:00–18:00</li>
+              <li>Vie:</li>
+              <li>8:00–18:00</li>
+              <li>Mar:</li>
+              <li>8:00–18:00</li>
+              <li>Jue:</li>
+              <li>8:00–18:00</li>
+              <li>Sáb:</li>
+              <li>8:00–16:00</li>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+    <!--FOOTER-->
+    <footer>
+      <div class="iconos">
+        <!--REDIRECCION A SUS RESPECTIVAS REDES SOCIALES-->
+        <a href="https://twitter.com/mec_car_gt" target="_blank">
+          <!--<i class="fa-brands fa-twitter" style="color: #ffffff;"></i>-->
+          <img src="../static/imgs/logosRedes/twitter.png" alt="link hacia twitter" width="39.5px">
+        </a>
+        <a href="https://www.facebook.com/meccargt89/" target="_blank">
+          <!--<i class="fa-brands fa-facebook" style="color: #ffffff;"></i>-->
+          <img src="../static/imgs/logosRedes/facebook.png" alt="link hacia facebook" width="40px">
+        </a>
+        <!--WHATSAPP NO ESTA DEFINIDO-->
+        <a href="https://api.whatsapp.com/send?phone=%2B573123104301&data=ARBz276EnqnghNpgpD8B_g21OCvtDB5DVzLcWVduai09SVGdAmUn2O2reyVRK335Q3yMmn7ed2ZDARM51iSqO7ExveIEdDDUqNKUIwDCsWCzsZJ6Hspv4PyEpTK5aUPd57_ra86Nn_mOOcOh_bGff9p7qQ&source=FB_Page&app=facebook&entry_point=page_cta"
+          target="_blank">
+          <!--<i class="fa-brands fa-whatsapp" style="color: #ffffff;"></i>-->
+          <img src="../static/imgs/logosRedes/whtasapp.png" alt="link hacia whatsapp" width="40px">
+        </a>
+        <a href="https://www.instagram.com/meccargt/?igshid=OGQ5ZDc2ODk2ZA%3D%3D" target="_blank">
+          <!--<i class="fa-brands fa-instagram" style="color: #ffffff;"></i>-->
+          <img src="../static/imgs/logosRedes/instagram.png" alt="link hacia instagram" width="40px">
+        </a>
+      </div>
+    </footer>
+</body>
+
+</html>

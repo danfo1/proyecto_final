@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/consultar.css">
+    <title>Registros Usuarios</title>
+    <script src="https://kit.fontawesome.com/82559006af.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="volver">
+        <a href="/ini2">
+            <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i>
+        </a>
+    </div>
+
+    <div class="titulo">
+        <p> Gestión Usuarios </p>
+    </div>
+        <div class="container">
+            <form method="POST" action="/usuario.consultarresep">
+                <div class="serch" name="Buscar">
+                    <input type="text" name="txtBuscar" placeholder="Buscar">
+                    <div class="btn">
+                        <i class="fa fa-search"></i>
+                    </div>
+                </div>
+            </form>
+            <table class="table_usu">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Tipo de documento</th>
+                        <th>Numero documento</th>
+                        <th>Correo electronico</th>
+                        <th>Telefono</th>
+                        <th>Telefono respaldo</th>
+                        <th>Estado</th>
+                        <th>Nombre usuario</th>
+                        <th>Contraseña</th>
+                        <th>Id rol</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody class="datos">
+                    {% for usuario in usuarios %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ usuario.nombres }}</td>  <!-- Acceder al segundo elemento de la tupla (nombres) -->
+                        <td>{{ usuario.apellidos }}</td>  <!-- Acceder al tercer elemento de la tupla (apellidos) -->
+                        <td>{{ usuario.tipo_documento}}</td>  <!-- Acceder al cuarto elemento de la tupla (tipo_documento) -->
+                        <td>{{ usuario.num_documento }}</td>  <!-- Acceder al quinto elemento de la tupla (num_documento) -->
+                        <td>{{ usuario.correo }}</td>  <!-- Acceder al sexto elemento de la tupla (correo) -->
+                        <td>{{ usuario.telefono }}</td>  <!-- Acceder al séptimo elemento de la tupla (telefono) -->
+                        <td>{{ usuario.telefono_respaldo }}</td>  <!-- Acceder al octavo elemento de la tupla (telefono_respaldo) -->
+                        <td>{{ usuario.estado }}</td>  <!-- Acceder al noveno elemento de la tupla (estado) -->
+                        <td>{{ usuario.nombreusu }}</td>  <!-- Acceder al décimo elemento de la tupla (nombreusu) -->
+                        <td>*****</td> <!-- Acceder al undécimo elemento de la tupla (contrasena) -->
+                        <td>{{ usuario.fk_id_rol }}</td> <!-- Acceder al duodécimo elemento de la tupla (fk_id_rol) -->
+                        <td>
+                            <div class="direct"> 
+                                <a href="/usuario.editar/{{ usuario.idusu }}">
+                                    <i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i>
+                                </a>
+                            </div> 
+                        </td> 
+                    </tr>
+                    {% endfor %}
+                </tbody>    
+            </table>
+            <a href="/usuario.registrar">
+                <button class="registro">Nuevo Usuario</button> 
+            </a>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperación de Contraseña</title>
+    <link rel="stylesheet" href="../../static/css/correo.css">
+</head>
+<body>
+    <div id="alert" class="{% with messages = get_flashed_messages() %}{% if messages %}{{ messages[0][1] }}{% endif %}{% endwith %}">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {{ messages[0]}}
+        {% endif %}
+        {% endwith %}
+    </div>
+    <h1>Recuperación de Contraseña</h1>
+    <form class="form" action="usuario.correo" method="POST">
+        <div class="input-box">
+            <input type="text" name="correo" required>
+            <label>Ingrese su correo</label>
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>

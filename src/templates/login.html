@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN MEC-CAR GT</title>
+    <link rel="stylesheet" href="../static/css/login.css"> <!-- Enlaza tu archivo CSS -->
+    <script src="https://kit.fontawesome.com/82559006af.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- BARRA DE NAVEGACION -->
+    <header class="menu">
+        <div class="ancho">
+            <div class="logo">
+                <img src="../static/imgs/logomec/logo.png"  alt="LOGO MEC-CAR GT" class="logo">
+            </div>
+            <nav>
+                <div class="caja">
+                    <a href="./home.html#fondocarrusel">Inicio</a>
+                    <a href="./home.html#fondovista2">Servicios</a>
+                    <a href="./home.html#fondovista3">Conócenos</a>
+                    <a href="./login.html">Iniciar sesión</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div id="alert" class="{% with messages = get_flashed_messages() %}{% if messages %}show{% endif %}{% endwith %}">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {{ messages[0] }}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <div class="ladoizq">
+        <div class="loginbox">
+            <!-- Alerta flash -->
+            <!-- Fin de alerta flash -->
+
+            <form class="form" action="/login" method="POST">
+                <i class="fa-solid fa-users"></i> <!-- No es necesario aplicar un color aquí, ya que se heredará del CSS -->
+                <div class="input-box">
+                    <samp class="icon form-input" name="usuario"></samp>
+                    <input type="text" name="usuario" required>
+                    <label>Ingrese su usuario</label>
+                </div>
+                <div class="input-box">
+                    <samp class="icon form-input" name="contrasena"></samp>
+                    <input type="password" name="contrasena" required>
+                    <label>Ingrese su contraseña</label>
+                </div>
+                <div class="forgot">
+                    <a href="{{ url_for('usuario.correo') }}">¿Olvidó su contraseña?</a>
+                </div>
+                <button type="submit">Iniciar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

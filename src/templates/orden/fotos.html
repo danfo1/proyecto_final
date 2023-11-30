@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../../static/css/fotos.css">
+    <title>Subir Imagen con Vista Previa (HTML)</title>
+    <script>
+        function mostrarVistaPrevia(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    var vistaPrevia = document.getElementById('vistaPrevia');
+                    vistaPrevia.src = e.target.result;
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="/ORDEN.fotos" method="post" enctype="multipart/form-data">
+        <input type="file" name="imagen" accept="image/*" onchange="mostrarVistaPrevia(this)">
+        <img id="vistaPrevia" src="#" alt="Vista Previa de la Imagen" style="max-width: 300px; max-height: 300px;">
+        <input type="submit" value="Subir Imagen">
+    </form>
+</body>
+</html>

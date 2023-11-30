@@ -1,0 +1,240 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+body{
+    font-family: 'Roboto Condensed', sans-serif;
+    background-image: url(../imgs/fondoimg/fondo2.jpeg);
+}
+/*MENU*/
+/*BARRA DE NAVEGACION HORIZONTAL*/
+.nav-menu i{
+    font-size: 3rem;
+}
+.nav-menu-second i{
+    font-size: 3rem;
+}
+.menu-horizontal{
+    background-color: transparent;
+    height: 100px;
+
+    --a1: scaleX(1);
+    --a2: scaleX(0);
+}
+.menu-horizontal:has(.elementoslista:target){
+    --a1: scaleX(0);
+    --a2: scaleX(1);
+
+    --clip: inset(0 0 0 0);
+}
+.logo{
+    width: 90%;
+    margin: 0 auto;
+    height: 100px;
+
+    display: grid;
+    grid-template-columns: max-content;
+    grid-template-areas: "a";
+    justify-content: space-between;
+    align-items: center;
+
+    overflow: hidden;
+}
+.nav-menu{
+    grid-area: a;
+    position: absolute;
+    z-index: 10;
+
+    transform: var(--a1);
+}
+.nav-menu-second{
+    transform: var(--a2);
+    z-index: 10;
+}
+.elementoslista{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.644);
+    backdrop-filter: blur(15px);
+    width: 400px;
+    max-width: 400px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    padding: 5em;
+    padding-top: 10em;
+    padding-bottom: 8em;
+
+    display: grid;
+    align-items: center;
+    gap: 0;
+
+    overflow-y: auto;
+
+    clip-path: var(--clip, inset(0 100% 0 0));
+    transition: clip-path .5s;
+    z-index: 9;
+}
+.elementoslista{
+    list-style: none;
+}
+/*AJUSTAR A PANTALLA PRINCIPAL*/
+.elementolink{
+    color: white;
+    padding: 2em 0em;
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+
+    position: relative;
+}
+.element:has( :checked ){
+    --rows: 1fr;
+    --rotate: rotate(180deg);
+}
+.element i{
+    margin-left: auto;
+    font-size: 1.5rem;
+    transform: var(--rotate, 0);
+    transition: .2s transform;
+}
+.elementos-check{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+.elementoslista-content{
+    display: grid;
+    position: relative;
+    left: 30px;
+    grid-template-rows: var(--rows, 0fr);
+    transition: .3s grid-template-rows;
+}
+.elementos-sub{
+    overflow: hidden;
+}
+.elementos-li{
+    width: 85%;
+    list-style: disc;
+    color: #ffffff;
+    margin: auto;
+}
+.anchor{
+    padding: .5em 0;
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+
+/*BARRA DE NAVEGACION LATERAL*/
+nav{
+	width: 55%;
+	height: 100px;
+	/*background: rgba(128, 128, 0, 0.301);*/
+	float: left;
+	text-align: right;
+	padding-top: 24px;
+	box-sizing: border-box;
+}
+nav a{
+    padding-left: 10px; 
+    padding-left: 0;
+}
+.caja{
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    bottom: 100px;
+    left: 600px;
+}
+
+/*Estilos del menu*/
+.caja a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    position: relative;
+    top: 20px;
+}
+@media (hover :hover){
+    .caja a:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: -3px;
+        left: 0;
+        height: 3px;
+        width: 100%;
+        background: rgb(255, 0, 0);
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform 0.2s ease-in-out;
+    }
+    .caja a:hover:after {
+        transform-origin: left;
+        transform: scaleX(1);
+    }
+}
+
+/*VISTA PRINCIPAL*/
+.bienvenido{
+    width: 500px;
+    height: 250px;
+    position: relative;
+    left: 200px;
+    top: 250px;
+}
+h1{
+    position: absolute;
+    color: white;
+    font-size: 5.5rem;
+    font-family: 'DM Serif Text', serif;
+}
+.bienvenido img{
+    position: absolute;
+    height: 90px;
+    width: auto;
+    left: 100px;
+    top: 105px;
+}
+
+@media screen and (max-width: 1100px) {
+    .vertical{
+        width: 30%;
+        position: relative;
+        right: 200px;
+    }
+    .caja{
+        width: 70vh;
+        justify-content: space-between;
+    }
+    a{
+        padding-right: 80px;
+    }
+    .bienvenido{
+        top: 180px;
+    }
+    h1{
+        font-size: 4rem;
+    }
+    .bienvenido img{
+        height: 70px;
+        top: 80px;
+        left: 70px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .vertical{
+        width: 30%;
+        position: relative;
+        right: 200px;
+    }
+    .caja a{
+        justify-content: space-between;
+    }
+}

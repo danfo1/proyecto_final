@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/editarorden.css">
+    <title>ediar vehivulo</title>
+</head>
+<body>
+    <h1>Editar Vehículo</h1>
+    <form class="form" action="{{ url_for('vehiculo.editar_vehiculo', id_vehiculo=data.id_vehiculo) }}" method="POST">
+        <label for="modelo">Modelo:</label>
+        <input type="text" id="modelo" name="modelo" value="{{ data.modelo }}" required><br><br>
+
+        <label for="marca">Marca:</label>
+        <select id="marca" name="marca" required>
+            <option value="Acura" {% if data.marca == 'Acura' %} selected {% endif %}>Acura</option>
+            <option value="Alfa Romeo" {% if data.marca == 'Alfa Romeo' %} selected {% endif %}>Alfa Romeo</option>
+            <!-- Agrega las demás opciones de marca aquí con el mismo enfoque -->
+        </select><br><br>
+
+        <label for="color">Color:</label>
+        <select id="color" name="color" required>
+            <option value="blanco" {% if data.color == 'blanco' %} selected {% endif %}>Blanco</option>
+            <option value="negro" {% if data.color == 'negro' %} selected {% endif %}>Negro</option>
+            <!-- Agrega las demás opciones de color aquí con el mismo enfoque -->
+        </select><br><br>
+
+        <label for="placa">Placa:</label>
+        <input type="text" id="placa" name="placa" value="{{ data.placa }}" maxlength="10" required><br><br>
+
+        <label for="cilindraje">Cilindraje:</label>
+        <input type="number" id="cilindraje" name="cilindraje" value="{{ data.cilindraje }}" required><br><br>
+
+        <label for="kilometraje">Kilometraje:</label>
+        <input type="number" id="kilometraje" name="kilometraje" value="{{ data.kilometraje }}" required><br><br>
+
+        <label for="referencia">Referencia:</label>
+        <select id="referencia" name="referencia" required>
+            <option value="Deportivo" {% if data.referencia == 'Deportivo' %} selected {% endif %}>Deportivo</option>
+            <option value="Familiar" {% if data.referencia == 'Familiar' %} selected {% endif %}>Familiar</option>
+            <!-- Agrega las demás opciones de referencia aquí con el mismo enfoque -->
+        </select><br><br>
+
+        <label for="tipo_combustible">Tipo de Combustible:</label>
+        <select id="tipo_combustible" name="tipo_combustible" required>
+            <option value="Gasolina" {% if data.tipo_combustible == 'Gasolina' %} selected {% endif %}>Gasolina</option>
+            <option value="Diésel" {% if data.tipo_combustible == 'Diésel' %} selected {% endif %}>Diésel</option>
+            <!-- Agrega las demás opciones de tipo de combustible aquí con el mismo enfoque -->
+        </select><br><br>
+
+        <input type="submit" value="Actualizar Vehículo">
+    </form>
+</body>
+</html>

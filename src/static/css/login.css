@@ -1,0 +1,252 @@
+body{
+    margin: 0;
+    padding: 0;
+    /*???*/
+    box-sizing: border-box;
+    font-family: 'Roboto Condensed', sans-serif;
+    background-image: url('../../static/imgs/fondoimg/fondo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;   
+    background-color: black;
+}
+/*BARRA DE NAVEGACION*/
+header{
+    width: 100%;
+    background-color: transparent;
+    height: 100px;
+}
+.ancho{
+    width: 90%;
+	height: 100px;
+	/*background: rgba(255, 0, 0, 0.301);*/
+	margin: auto;
+}
+.logo{
+	width: 45%;
+	/*background: rgba(0, 0, 255, 0.205);*/
+    height: 70px;
+	float: left;
+	padding-top: 15px;
+	box-sizing: border-box;
+}
+nav{
+	width: 55%;
+	height: 100px;
+	/*background: rgba(128, 128, 0, 0.301);*/
+	float: left;
+	text-align: right;
+	padding-top: 24px;
+	box-sizing: border-box;
+}
+nav a{
+    padding-left: 10px; 
+    padding-left: 0;
+}
+.caja{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/*Estilos del menu*/
+.caja a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    position: relative;
+    top: 20px;
+}
+@media (hover :hover){
+    .caja a:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: -3px;
+        left: 0;
+        height: 3px;
+        width: 100%;
+        background: rgb(255, 0, 0);
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform 0.2s ease-in-out;
+    }
+    .caja a:hover:after {
+        transform-origin: left;
+        transform: scaleX(1);
+    }
+}
+
+#alert {
+    padding: 15px;
+    margin: 15px auto; /* Centrado horizontal */
+    border-radius: 8px;
+    font-weight: bold;
+    color: #000000;
+    display: none; /* Inicialmente oculto */
+    width: 80%; /* Ancho reducido a un 80% */
+    box-sizing: border-box;
+    text-align: center;
+    background: linear-gradient(45deg, #f8fff8, #f6fbff); /* Fondo degradado */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: background 0.3s, color 0.3s;
+    margin-left: 10%; /* Ajusta según sea necesario */
+    margin-right: 10%; /* Ajusta según sea necesario */
+}
+
+#alert.show {
+    display: inline-block; /* Mostrar solo cuando tiene la clase 'show' */
+}
+
+#alert.success {
+    background: linear-gradient(45deg, #4CAF50, #2E7D32); /* Fondo degradado verde */
+}
+/*BODY DEL LOGIN*/
+.ladoizq{
+    position: relative;
+    /*background-color: chartreuse;*/
+    width: 100%;
+    height: 82.9vh;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contlogin{
+    height: 450px;
+    width: 500px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+/*LOGIN*/
+.loginbox{
+    position: relative;
+    width: 400px;
+    height: 450px;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(15px);
+}
+i{
+    font-size: 8rem;
+    /*font-weight: 800;*/
+    margin-bottom: 30px;
+    position: relative;
+    /*PARA CENTAR*/
+    left: 20px;
+}
+.input-box{
+    position: relative;
+    width: 200px;
+    margin: 30px 0;
+    border-bottom: 2px solid #fff;
+}
+.input-box label{
+    position: absolute;
+    top: 10%;
+    left: 5px;
+    font-size: 1em;
+    color: #ffffff;
+    pointer-events: none;
+    transition: .5s;
+}
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top: -15px;
+}
+
+.input-box input{
+    width: 91%;
+    height: 30px;
+    background: transparent;
+    border: none;
+    /*???*/
+    outline: none;
+    font-size: 1em;
+    color: #fff;
+    padding: 0 1px 0 10px;
+    /*SI SE COLOCAN LOGOS LATERALES ES NECESARIO COLOCAR UN PADDING*/
+    /*padding: 0 35px 0 5px;*/
+}
+.forgot{
+    margin: -15px 0 -15px;
+    font-size: .9em;
+
+}
+.forgot a{
+    text-decoration: none;
+    color: white;
+}
+.forgot a:hover{
+    text-decoration: underline;
+}
+@media (hover :hover){
+    .forgot a:hover{
+        text-decoration: underline;
+    }
+}
+button{
+    width: 50%;
+    height: 40px;
+    background-color: #fff;
+    border: none;
+    /*???*/
+    outline: none;
+    border-radius: 40px;
+    font-size: 1em;
+    color: black;
+    /*???*/
+    font-weight: 500;
+    position: relative;
+    top: 30px;
+    left: 25%;
+    cursor: pointer;
+    transition: 2s;
+}
+button:hover{
+    background-color: black;
+    color: #fff;
+}
+@media (max-width: 360px) {
+    .loginbox{
+        width: 100%;
+        height: 100vh;
+    }
+}
+
+@media screen and (max-width: 922px) {
+    body{
+        background-color: black;
+    }
+    .caja a{
+        font-size: 0.9rem;
+    }
+    .logo{
+        width: 250px;
+        height: 80px;
+    }
+}
+@media screen and (max-width: 670px){
+    .caja a{
+        font-size: 0.8rem;
+    }
+    .logo{
+        width: 200px;
+        height: 80px;
+    }
+}
+@media screen and (max-width: 500px){
+    #menu {
+        font-size: 0.8rem;
+    }
+    .caja a{
+        font-size: 0.6rem;
+    }
+    .logo{
+        width: 150px;
+        height: 70px;
+    }
+}

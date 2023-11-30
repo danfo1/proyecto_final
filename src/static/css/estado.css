@@ -1,0 +1,318 @@
+/* El * es un estilo universal*/
+
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body{
+    background: url(../imgs/fondoimg/fondo2.jpeg);
+}
+
+.icon{
+    line-height: 80px;
+    position: relative;
+    left: 20px;
+    font-size: 2rem;
+
+}
+
+nav{
+    background:  transparent;
+    height: 80px;
+    width: 100%;
+}
+
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+
+nav ul a{
+    color: white;
+    font-size: 18px;
+    padding: 7px 20px;
+    text-transform: uppercase;
+}
+
+nav ul a:hover{
+    color: #8a0e0e;
+}
+
+li{
+    position: relative;
+    transition: 0.5s;
+    cursor: pointer;
+    line-height: 80px;
+}
+
+li::after{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 3px;
+    top: 70%;
+    left: 0;
+    transition: transform 0.5s;
+    transform: scaleX(0);
+    transform-origin: right;
+    background-color:  #ce1111;
+}
+
+li:hover::after{
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+
+/* Diseño reporte de entrega cliente*/
+
+.complete{
+    width: 1150px;
+    height: 600px;
+    background: rgb(35 32 32 / 50%);
+    margin: 5px auto;
+    border-radius: 10px;
+    backdrop-filter: blur(15px);
+    position: relative;
+    top: 10px;
+    border: 2px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.complete  .img{
+    width: 50%;
+    height: 80%;
+    background-image: url(../imgs/fondoimg/carro.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/*Botón Modal*/
+
+.boton-modal label{
+    padding: 8px 1px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    right: 240%;
+    top: 148px;
+    background-color: #8a0e0e;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 300ms ease;
+    
+}
+
+.boton-modal label:hover{
+    background-color: #af0606;
+}
+
+/*Fin botón modal*/
+
+/*Ventana modal*/
+
+#btn-modal{
+    display: none;
+}
+
+.container-modal{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0; left:0;
+    background-color: rgba(144, 148, 150, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+#btn-modal:checked ~ .container-modal {
+    display: flex;
+}
+
+.content-modal{
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.content-modal h2{
+    margin-bottom: 15px;
+}
+
+.content-modal p{
+    padding: 15px 0px;
+    border-top: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.content-modal .btn-cerrar{
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.content-modal .btn-cerrar label{
+    padding: 7px 10px;
+    background-color: #8a0e0e;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.content-modal .btn-cerrar label:hover{
+    background-color: #af0606;
+}
+
+.cerrar-modal{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top:0; left: 0;
+    z-index: -1;
+}
+
+/*Fin ventana modal*/
+
+
+.formulario{
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.formulario label {
+    padding-bottom: 43px;
+    position: relative;
+    top: -1px;
+    left: -92px;
+}
+
+.options{
+    width: 60px; 
+    display: flex;
+    color: #fff;
+    font-size: 1.2rem;
+    justify-content: space-between;
+    position: relative;
+    left: 150px;
+    top: -55px;
+    z-index: 10;
+}
+.options label{
+    padding-bottom: 43px;
+    position: relative; 
+    top: -70px;
+}
+
+.options input {
+    width: 60px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    left: -62px;
+    top: 69px;
+    z-index: 10;
+}
+
+.seleccion{
+    position: relative;
+    left: 185px;
+    display: flex;
+    justify-content: space-between;
+    width: 60px;
+}
+
+
+/* Diseño boton finalizar*/
+.finish{
+    position: absolute;
+    background-color: #8a0e0e;
+    color: #fff;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 1180px;
+    margin-top: 2%  ;
+}
+
+/*flex-wrap::-webkit-scrollbar-track-piece*/
+
+.finish:hover {
+    background-color: #af0606;
+}
+
+
+/* Estilo para el contenedor del input de tipo file */
+.custom-file-container {
+    padding: 10px ;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    right: 287px;
+    top: 147px;
+    background-color: #8a0e0e;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 20px;
+}
+
+.custom-file-container:hover{
+    background-color: #af0606;
+}
+
+.form-group {
+    margin-bottom: 15px; /* Espacio entre cada grupo */
+    display: block;
+}
+.form-group select {
+    width: 150px; /* Ajusta el ancho según tus preferencias */
+}
+
+/* Oculta el input de tipo file original */
+input[type="file"] {
+    display: none;
+}
+
+
+
+.options-checkbox:checked + label::before {
+    content: '\2713'; /* Código de flecha de verificación (✓) */
+    font-size: 20px;
+    color: white;
+    background-color: red; /* Fondo rojo cuando está marcado */
+    border-radius: 50%; /* Para hacer un círculo */
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+}

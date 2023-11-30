@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Usuario</title>
+    <link rel="stylesheet" href="../static/css/eliminar.CSS"> <!-- Agrega tu hoja de estilos personalizada -->
+</head>
+<body>
+    <div class="container">
+        <div class="volver">
+            <a href="./inicio.html">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+        </div>
+        <h1 class="form-title">Eliminar Usuario</h1>
+
+        <div class="user-details">
+            <p><strong>ID:</strong> {{ data.idusu }}</p>
+            <p><strong>Modelo:</strong> {{ data.modelo }}</p>
+            <p><strong>Marca:</strong> {{ data.marca }}</p>
+            <p><strong>Color:</strong> {{ data.color }}</p>
+            <p><strong>Placa:</strong> {{ data.placa }}</p>
+            
+
+            <!-- Agrega más detalles del usuario según sea necesario -->
+        </div>
+
+        <form class="form" action="/vehiculo.eliminar/{{ data.id_vehiculo }}" method="post">
+            <p class="eliminar-usuario">¿Estás seguro de que deseas eliminar este vehiculo?</p>
+            <div class="form-submit-btn">
+                <input type="submit" value="Eliminar" id="btn">
+                <a href="{{ url_for('vehiculo.consultar_vehiculo') }}">Cancelar</a>
+            </div>
+        </form> 
+    </div>
+</body>
+</html>

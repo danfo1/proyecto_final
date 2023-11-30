@@ -1,0 +1,373 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: darkgray;
+    font-family: 'Roboto Condensed', sans-serif;
+    /*background-image: url("../../imgs/fondoGif/gif.gif");*/
+    background-color: darkgray;
+    background-size: cover;
+    backdrop-filter: blur(4px);
+    height: 46.5vw;
+}
+
+
+/*MENU*/
+/*BARRA DE NAVEGACION HORIZONTAL*/
+.nav-menu i{
+    font-size: 3rem;
+}
+.nav-menu-second i{
+    font-size: 3rem;
+}
+.menu-horizontal{
+    background-color: transparent;
+    height: 100px;
+
+    --a1: scaleX(1);
+    --a2: scaleX(0);
+}
+.menu-horizontal:has(.elementoslista:target){
+    --a1: scaleX(0);
+    --a2: scaleX(1);
+
+    --clip: inset(0 0 0 0);
+}
+.logo{
+    width: 90%;
+    margin: 0 auto;
+    height: 100px;
+
+    display: grid;
+    grid-template-columns: max-content;
+    grid-template-areas: "a";
+    justify-content: space-between;
+    align-items: center;
+
+    overflow: hidden;
+}
+.nav-menu{
+    grid-area: a;
+    position: absolute;
+
+    /*PREGUNTAR*/
+    z-index: 10;
+
+    transform: var(--a1);
+}
+.nav-menu-second{
+    transform: var(--a2);
+    z-index: 30;
+}
+.elementoslista{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.644);
+    backdrop-filter: blur(15px);
+    width: 400px;
+    max-width: 400px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    padding: 5em;
+    padding-top: 10em;
+    padding-bottom: 8em;
+
+    display: grid;
+    align-items: center;
+    gap: 0;
+
+    overflow-y: auto;
+
+    clip-path: var(--clip, inset(0 100% 0 0));
+    transition: clip-path .5s;
+    z-index: 29;
+}
+.elementoslista{
+    list-style: none;
+}
+/*AJUSTAR A PANTALLA PRINCIPAL*/
+.elementolink{
+    color: white;
+    padding: 2em 0em;
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+
+    position: relative;
+}
+.element:has( :checked ){
+    --rows: 1fr;
+    --rotate: rotate(180deg);
+}
+.element i{
+    margin-left: auto;
+    font-size: 1.5rem;
+    transform: var(--rotate, 0);
+    transition: .2s transform;
+}
+.elementos-check{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+.elementoslista-content{
+    display: grid;
+    position: relative;
+    left: 30px;
+    grid-template-rows: var(--rows, 0fr);
+    transition: .3s grid-template-rows;
+}
+.elementos-sub{
+    overflow: hidden;
+}
+.elementos-li{
+    width: 85%;
+    list-style: disc;
+    color: #ffffff;
+    margin: auto;
+}
+.anchor{
+    padding: .5em 0;
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+
+/*BARRA DE NAVEGACION LATERAL*/
+nav{
+	width: 55%;
+	height: 100px;
+	/*background: rgba(128, 128, 0, 0.301);*/
+	float: left;
+	text-align: right;
+	padding-top: 24px;
+	box-sizing: border-box;
+  
+    
+}
+nav a{
+    padding-left: 10px; 
+    padding-left: 0;
+}
+.caja{
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    bottom: 100px;
+    left: 600px;
+    /*left: 900px;*/
+}
+
+/*Estilos del menu*/
+.caja a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    position: relative;
+    top: 20px;
+}
+@media (hover :hover){
+    .caja a:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: -3px;
+        left: 0;
+        height: 3px;
+        width: 100%;
+        background: rgb(255, 0, 0);
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform 0.2s ease-in-out;
+    }
+    .caja a:hover:after {
+        transform-origin: left;
+        transform: scaleX(1);
+    }
+}
+
+
+.carretera{
+    position: relative;
+    left: 220px;
+    /*left: 350px;*/
+    top: 140px;
+    background-color: white;
+    height: 5px;
+    width: 900px;
+    /*width: 1220px;*/
+}
+.pista1::before{
+    content: '';
+    position: absolute;
+    top: 75px;
+    background-color: white;
+    width: 90px;
+    height: 5px;
+    left: 15px;
+    /*left: 10px;*/
+    z-index: -2;
+}
+.pista2::before{
+    content: '';
+    position: absolute;
+    top: 75px;
+    background-color: white;
+    width: 90px;
+    height: 5px;
+    left: 200px;
+    /*left: 280px;*/
+    z-index: -2;
+}
+.pista3::before{
+    content: '';
+    position: absolute;
+    top: 75px;
+    background-color: white;
+    width: 90px;
+    height: 5px;
+    left: 400px;
+    /*left: 570px;*/
+    z-index: -2;
+}
+.pista4::before{
+    content: '';
+    position: absolute;
+    top: 75px;
+    background-color: white;
+    width: 90px;
+    height: 5px;
+    left: 600px;
+    /*left: 850px;*/
+    z-index: -2;
+}
+.pista5::before{
+    content: '';
+    position: absolute;
+    top: 75px;
+    background-color: white;
+    width: 90px;
+    height: 5px;
+    left: 800px;
+    /*left: 1130px;*/
+    z-index: -2;
+}
+
+.trasncurso{
+    background-color: transparent;
+    position: absolute;
+    width: 950px;
+    top: 270px;
+    left: 200px;
+}
+#valeria{
+    font-size: 4rem;
+}
+#valeria {
+    position: relative;
+    left: 20px;
+    /*left: 140px;*/
+    transition: left 1s ease-in-out;
+  }
+
+  /*@keyframes moveObject {
+    0% {
+      left: 0;
+    }
+    25% {
+      left: 320px;
+    }
+    50% {
+      left: 610px;
+    }
+    100% {
+      left: 900px;
+    }
+
+  }*/
+
+.linea::before{
+    content: '';
+    position: absolute;
+    width: 800px;
+    /*width: 1200px;*/
+    height: 10px;
+    background-color: black;
+    margin: 300px 300px;
+}
+.linea{
+    margin-top: 250px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.inicio,
+.inspeccion,
+.reparacion,
+.finalizacion{
+    width: 90px;
+    height: 90px;
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    border-radius: 4rem;
+    z-index: 10;
+}
+.inicio i,
+.inspeccion i,
+.reparacion i,
+.finalizacion i{
+    margin: 17px 10px;
+    font-size: 3.2rem;
+} 
+.inicio button,
+.inspeccion button,
+.reparacion button,
+.finalizacion button{
+    border: none;
+    background-color: transparent;
+}
+
+
+
+.elemento1,
+.elemento2,
+.elemento3,
+.elemento4{
+    background-color: black;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 450px;
+    left: 170px;
+    /*left: 280px;*/
+    visibility: hidden;
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    border-radius: 2rem;
+}
+.elemento2{
+    left: 450px;
+    /*left: 685px;*/
+}
+.elemento3{
+    left: 740px;
+    /*left: 1080px;*/
+}
+.elemento4{
+    left: 1030px;
+    /*left: 1490px;*/
+}
+.elemento1.vs1,
+.elemento2.vs2,
+.elemento3.vs3,
+.elemento4.vs4{
+    visibility: visible;
+}

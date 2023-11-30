@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/orden.css">
+    <title>Registrar Orden de Trabajo</title>
+    <!-- Agrega cualquier enlace a bibliotecas o estilos adicionales que necesites -->
+</head>
+<body>
+    <div id="alert" class="{% with messages = get_flashed_messages() %}{% if messages %}{{ messages[0][1] }}{% endif %}{% endwith %}">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {{ messages[0]}}
+        {% endif %}
+        {% endwith %}
+    </div>
+    <h1>Registrar Orden de Trabajo</h1>
+    <div class="container">
+        <form action="/ORDEN.registrar" method="post" enctype="multipart/form-data">
+        <div class="datos_vehiculo">
+            <div class="formulario">
+                <label for="placa">Placa:</label>
+                <input type="text" id="placa" name="placa" required><br><br>
+
+                <label for="descripcion">Descripción:</label>
+                <textarea id="descripcion" name="descripcion" required></textarea><br><br>
+
+                <label for="radio">Radio:</label>
+                <select id="radio" name="radio" required>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select><br><br>
+
+                <label for="antena">Antena:</label>
+                <select id="antena" name="antena" required>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select><br><br>
+
+                <label for="encendedor">Encendedor:</label>
+                <select id="encendedor" name="encendedor" required>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select><br><br>
+
+                <label for="tapetes">Tapetes:</label>
+                <select id="tapetes" name="tapetes" required>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select><br><br>
+
+                <label for="soat">SOAT:</label>
+                <select id="soat" name="soat" required>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select><br><br>
+
+                <label for="grua">Grua:</label>
+                <select id="grua" name="grua" required>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select><br><br>
+
+                <label for="estado_llantas">Estado Llantas:</label>
+                <input type="text" id="estado_llantas" name="estado_llantas" required><br><br>
+
+                <label for="llave_pernos">Llave Pernos:</label>
+                <select id="llave_pernos" name="llave_pernos" required>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select><br><br>
+
+                <label for="llanta_repuesto">Llanta Repuesto:</label>
+                <select id="llanta_repuesto" name="llanta_repuesto" required>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select><br><br>
+
+                <label for="tapa_gasolina">Tapa Gasolina:</label>
+                <select id="tapa_gasolina" name="tapa_gasolina" required>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select><br><br>
+
+                <label for="kit_carretera">Kit Carretera:</label>
+                <select id="kit_carretera" name="kit_carretera" required>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select><br><br>
+
+                <label for="copas">Copas:</label>
+                <select id="copas" name="copas" required>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select><br><br>
+
+                <label for="tarjeta_de_propiedad">Tarjeta de Propiedad:</label>
+                <select id="tarjeta_de_propiedad" name="tarjeta_de_propiedad" required>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select><br><br>
+
+                <label for="sucio">Estado Sucio:</label>
+                <select id="sucio" name="sucio" required>
+                    <option value="si">SI</option>
+                    <option value="no">NO</option>
+                </select><br><br>
+
+                <label for="manchado">Estado Manchado:</label>
+                <select id="manchado" name="manchado" required>
+                    <option value="si">SI</option>
+                    <option value="no">NO</option>
+                </select><br><br>
+
+                <label for="golpe">Estado Golpe:</label>
+                <select id="golpe" name="golpe" required>
+                    <option value="si">SI</option>
+                    <option value="no">NO</option>
+                </select><br><br>
+                
+                <label for="rayado">Estado Rayado:</label>
+                <select id="rayado" name="rayado" required>
+                    <option value="si">SI</option>
+                    <option value="no">NO</option>
+                </select>
+
+                <label for="fotos">Subir url:</label>
+                <input type="text" id="fotos" name="fotos" >
+
+                <label for="estado_proceso">Estado Proceso:</label>
+                <select id="estado_proceso" name="estado_proceso" required>
+
+                    <option value="Funcionamiento">iniciado</option>
+                    <option value="finalizado">Finalizado</option>
+                </select><br><br>
+
+                <label for="periodo_de_tiempo_ini">Periodo de Tiempo Inicio:</label>
+                <input type="datetime-local" id="periodo_de_tiempo_ini" name="periodo_de_tiempo_ini" required><br><br>
+
+                <label for="periodo_de_tiempo_fin">Periodo de Tiempo Fin:</label>
+                <input type="datetime-local" id="periodo_de_tiempo_fin" name="periodo_de_tiempo_fin" required><br><br>
+
+                <label for="herramientas">Herramientas:</label>
+                <select id="herramientas" name="herramientas" required>
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select><br><br>
+            </div>
+
+            <!-- Puedes agregar más columnas (div.formulario) según sea necesario -->
+
+            <!-- Agrega campos adicionales según tus necesidades -->
+        </div>
+
+        <input type="submit" class="pass" value="siguiente">
+    </form>
+</div>
+</body>
+</html>

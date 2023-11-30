@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/editarorden.css">
+    <title>Editar Usuario</title>
+    <script src="https://kit.fontawesome.com/82559006af.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>Editar Orden de Trabajo</h1>
+    <form class="form" action="{{url_for('ORDEN.editar_orden', id_orden=data.id_orden) }}" method="POST">
+        
+
+        <label for="placa">Placa:</label>
+        <input type="text" id="placa" name="placa" value="{{data.placa}}" required><br><br>
+
+        <label for="descripcion">Descripción:</label>
+        <input type="text" id="descripcion" name="descripcion" value="{{ data.descripcion }}" required><br><br>
+
+        <label for="radio">Radio:</label>
+        <select id="radio" name="radio" required>
+            <option value="si" {% if data.radio == 'si' %} selected {% endif %}>Sí</option>
+            <option value="no" {% if data.radio == 'no' %} selected {% endif %}>No</option>
+        </select><br><br>
+
+        <label for="antena">Antena:</label>
+        <select id="antena" name="antena" required>
+            <option value="si" {% if data.antena == 'si' %} selected {% endif %}>Sí</option>
+            <option value="no" {% if data.antena == 'no' %} selected {% endif %}>No</option>
+        </select><br><br>
+
+        <label for="encendedor">Encendedor:</label>
+        <select id="encendedor" name="encendedor" required>
+            <option value="si" {% if data.encendedor == 'si' %} selected {% endif %}>Sí</option>
+            <option value="no" {% if data.encendedor == 'no' %} selected {% endif %}>No</option>
+        </select><br><br>
+
+        <label for="tapetes">Tapetes:</label>
+        <select id="tapetes" name="tapetes" required>
+            <option value="si" {% if data.tapetes == 'si' %} selected {% endif %}>Sí</option>
+            <option value="no" {% if data.tapetes == 'no' %} selected {% endif %}>No</option>
+        </select><br><br>
+
+        <label for="soat">SOAT:</label>
+        <select id="soat" name="soat" required>
+            <option value="si" {% if data.soat == 'si' %} selected {% endif %}>Sí</option>
+            <option value="no" {% if data.soat == 'no' %} selected {% endif %}>No</option>
+        </select><br><br>
+
+        <label for="grua">Grua:</label>
+        <select id="grua" name="grua" required>
+            <option value="si" {% if data.grua == 'si' %} selected {% endif %}>Sí</option>
+            <option value="no" {% if data.grua == 'no' %} selected {% endif %}>No</option>
+        </select><br><br>
+
+        <label for="estado_llantas">Estado Llantas:</label>
+        <input type="text" id="estado_llantas" name="estado_llantas" value="{{ data.estado_llantas }}" required><br><br>
+
+        <label for="llave_pernos">Llave Pernos:</label>
+        <select id="llave_pernos" name="llave_pernos" required>
+            <option value="si" {% if data.llave_pernos == 'si' %} selected {% endif %}>Sí</option>
+            <option value="no" {% if data.llave_pernos == 'no' %} selected {% endif %}>No</option>
+        </select><br><br>
+
+        <label for="llanta_repuesto">Llanta Repuesto:</label>
+        <select id="llanta_repuesto" name="llanta_repuesto" required>
+            <option value="si" {% if data.llanta_repuesto == 'si' %} selected {% endif %}>Sí</option>
+            <option value="no" {% if data.llanta_repuesto == 'no' %} selected {% endif %}>No</option>
+        </select><br><br>
+
+        <label for="tapa_gasolina">Tapa Gasolina:</label>
+        <select id="tapa_gasolina" name="tapa_gasolina" required>
+            <option value="si" {% if data.tapa_gasolina == 'si' %} selected {% endif %}>Sí</option>
+            <option value="no" {% if data.tapa_gasolina == 'no' %} selected {% endif %}>No</option>
+        </select><br><br>
+
+        <label for="herramientas">Herramientas:</label>
+        <select id="herramientas" name="herramientas" required>
+            <option value="si" {% if data.herramientas == 'si' %} selected {% endif %}>Sí</option>
+            <option value="no" {% if data.herramientas == 'no' %} selected {% endif %}>No</option>
+        </select><br><br>
+
+        <label for="kit_carretera">Kit Carretera:</label>
+        <select id="kit_carretera" name="kit_carretera" required>
+            <option value="si" {% if data.kit_carretera == 'si' %} selected {% endif %}>Sí</option>
+            <option value="no" {% if data.kit_carretera == 'no' %} selected {% endif %}>No</option>
+        </select><br><br>
+
+        <label for="copas">Copas:</label>
+        <select id="copas" name="copas" required>
+            <option value="si" {% if data.copas == 'si' %} selected {% endif %}>Sí</option>
+            <option value="no" {% if data.copas == 'no' %} selected {% endif %}>No</option>
+        </select><br><br>
+
+        <label for="tarjeta_de_propiedad">Tarjeta de Propiedad:</label>
+        <select id="tarjeta_de_propiedad" name="tarjeta_de_propiedad" required>
+            <option value="si" {% if data.tarjeta_de_propiedad == 'si' %} selected {% endif %}>Sí</option>
+            <option value="no" {% if data.tarjeta_de_propiedad == 'no' %} selected {% endif %}>No</option>
+        </select><br><br>
+
+        <label for="estado_proceso">Estado Proceso:</label>
+        <select id="estado_proceso" name="estado_proceso" required>
+            <option value="Funcionamiento" {% if data.estado_proceso == 'Funcionamiento' %} selected {% endif %}>Funcionamiento</option>
+            <option value="finalizado" {% if data.estado_proceso == 'Finalizado' %} selected {% endif %}>Finalizado</option>
+        </select><br><br>
+        
+        <label for="estado_llantas">url:</label>
+        <input type="text" id="url" name="url" value="{{ data.url }}" required><br><br>
+        
+        <label for="copas">golpe:</label>
+        <select id="copas" name="copas" required>
+            <option value="si" {% if data.copas == 'si' %} selected {% endif %}>Sí</option>
+            <option value="no" {% if data.copas == 'no' %} selected {% endif %}>No</option>
+        </select><br><br>
+        
+        <label for="copas">rayado :</label>
+        <select id="copas" name="copas" required>
+            <option value="si" {% if data.copas == 'si' %} selected {% endif %}>Sí</option>
+            <option value="no" {% if data.copas == 'no' %} selected {% endif %}>No</option>
+        </select><br><br>
+        
+        <label for="copas">manchado:</label>
+        <select id="copas" name="copas" required>
+            <option value="si" {% if data.copas == 'si' %} selected {% endif %}>Sí</option>
+            <option value="no" {% if data.copas == 'no' %} selected {% endif %}>No</option>
+        </select><br><br>
+        
+        <label for="copas">sucio:</label>
+        <select id="copas" name="copas" required>
+            <option value="si" {% if data.copas == 'si' %} selected {% endif %}>Sí</option>
+            <option value="no" {% if data.copas == 'no' %} selected {% endif %}>No</option>
+        </select><br><br>
+
+        <label for="periodo_de_tiempo_ini">Periodo de Tiempo Inicio:</label>
+        <input type="datetime-local" id="periodo_de_tiempo_ini" name="periodo_de_tiempo_ini" value="{{ data.periodo_de_tiempo_ini }}" required><br><br>
+
+        <label for="periodo_de_tiempo_fin">Periodo de Tiempo Fin:</label>
+        <input type="datetime-local" id="periodo_de_tiempo_fin" name="periodo_de_tiempo_fin" value="{{ data.periodo_de_tiempo_fin }}" required><br><br>
+
+        <input type="submit" value="Actualizar Orden de Trabajo">
+    </form>
+</body>
+    </html>

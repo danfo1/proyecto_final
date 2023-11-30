@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Usuario</title>
+    <link rel="stylesheet" href="../static/css/eliminar.CSS"> <!-- Agrega tu hoja de estilos personalizada -->
+</head>
+<body>
+    <div class="container">
+        <div class="volver">
+            <a href="./inicio.html">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+        </div>
+        <h1 class="form-title">Eliminar Usuario</h1>
+
+        <div class="user-details">
+            <p><strong>ID:</strong> {{ data.idusu }}</p>
+            <p><strong>Nombres:</strong> {{ data.nombres }}</p>
+            <p><strong>Apellidos:</strong> {{ data.apellidos }}</p>
+            <p><strong>tipo de documento:</strong> {{ data.tipo_documento }}</p>
+            <p><strong>numero de docume4nto:</strong> {{ data.num_documento }}</p>
+            <p><strong>telefono de respaldo</strong> {{ data.telefono_respaldo }}</p>
+            <p><strong>estado:</strong> {{ data.estado }}</p>
+            <p><strong>contraseña:</strong> *******</p>
+            <p><strong>id rol:</strong> {{ data.fk_id_rol }}</p>
+
+            <!-- Agrega más detalles del usuario según sea necesario -->
+        </div>
+
+        <form class="form" action="/usuario.eliminar/{{ data.idusu }}" method="post">
+            <p class="eliminar-usuario">¿Estás seguro de que deseas eliminar este usuario?</p>
+            <div class="form-submit-btn">
+                <input type="submit" value="Eliminar" id="btn">
+                <a href="{{ url_for('usuario.consultar') }}">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

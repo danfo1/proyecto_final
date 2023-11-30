@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/consultar.css">
+    <title>Consultar vehiculo</title>
+    <script src="https://kit.fontawesome.com/82559006af.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="volver">
+        <a href="../inicio.html">
+            <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i>
+        </a>
+    </div>
+
+    <div class="titulo">
+        <p> Gestión vehiculo </p>
+    </div>
+
+    <div class="container">
+        <form method="POST" action="/vehiculo.consultar_vehiculo">
+            <div class="search">
+                <input type="text" name="txtBuscar" placeholder="Buscar">
+                <div class="btn">
+                    <i class="fa fa-search"></i>
+                </div>
+            </div>
+        </form>
+
+        <table class="table_vehiculo">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Modelo</th>
+                    <th>Marca</th>
+                    <th>Color</th>
+                    <th>Placa</th>
+                    <th>Cilindraje</th>
+                    <th>Kilometraje</th>
+                    <th>Referencia</th>
+                    <th>Tipo de combustible</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="datos">
+                {% for vehiculo in vehiculo %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ vehiculo.modelo }}</td>
+                    <td>{{ vehiculo.marca }}</td>
+                    <td>{{ vehiculo.color }}</td>
+                    <td>{{ vehiculo.placa }}</td>
+                    <td>{{ vehiculo.cilindraje }}</td>
+                    <td>{{ vehiculo.kilometraje }}</td>
+                    <td>{{ vehiculo.referencia }}</td>
+                    <td>{{ vehiculo.tipo_conbustible }}</td>
+                    <td>
+                </tr>
+                {% endfor %}
+            </tbody>    
+        </table>
+
+        <a href="/vehiculo.registrar">
+            <button class="registro">Nuevo vehiculo</button> 
+        </a>
+    </div>
+</body>
+</html>

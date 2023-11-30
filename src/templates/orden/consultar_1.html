@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../static/css/consultar.css">
+        <script src="https://kit.fontawesome.com/82559006af.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <title>Registros ordenes de trabajo</title>
+    
+        <script type="text/javascript">
+            function generarReporteExcel() {
+                // Obtener datos de la tabla
+                var filas = document.querySelectorAll('.table_usu tbody tr');
+                var datos = [];
+            
+                // Obtener encabezados de columna
+                var encabezados = [];
+                document.querySelectorAll('.table_usu thead th').forEach(function (th) {
+                    encabezados.push(th.textContent.trim());
+                });
+                datos.push(encabezados);
+            
+                // Iterar sobre las filas de la tabla
+                filas.forEach(function (fila) {
+                    var filaDatos = [];
+            
+                    // Obtener datos de cada celda en la fila
+                    fila.querySelectorAll('td').forEach(function (celda) {
+                        filaDatos.push(celda.textContent.trim());
+                    });
+            
+                    // Agregar datos de la fila al conjunto de datos
+                    datos.push(filaDatos);
+                });
+            
+                // Crear un libro de trabajo y agregar la hoja de datos
+                var wb = XLSX.utils.book_new();
+                var ws = XLSX.utils.aoa_to_sheet(datos);
+                XLSX.utils.book_append_sheet(wb, ws, "Sheet JS");
+            
+                // Guardar el libro de trabajo en un archivo
+                var nombre_archivo = 'reporte_orden_de_trabajo_excel.xlsx';
+                XLSX.writeFile(wb, nombre_archivo);
+            }
+            
+            $(document).ready(function () {
+                // Manejador de clic para el botón de generación de reportes
+                $("#btnGenerarReporte").click(function () {
+                    // Llama a la función para generar el reporte en formato Excel
+                    generarReporteExcel();
+                });
+            
+                
+            });
+    
+            function imprimir(placa, descripcion, radio, antena, encendedor, tapetes, soat, grua, estadoLlantas, llavePernos, llantaRepuesto, tapaGasolina, herramientas, kitCarretera, event) {
+                event.preventDefault();
+    
+                var pdf = new window.jspdf.jsPDF();
+    
+                // Añadir el título en rojo
+                pdf.setTextColor(255, 0, 0);
+                pdf.text("MEC-CAR GT", 10, 10);
+    
+                // Restaurar el color de texto a negro
+                pdf.setTextColor(0, 0, 0);
+    
+                // Salto de línea antes de la placa
+                pdf.text("\nPlaca: " + placa, 10, 20);
+                pdf.text("Descripción: " + descripcion, 10, 30);
+                pdf.text("Radio: " + radio, 10, 40);
+                pdf.text("Antena: " + antena, 10, 50);
+                pdf.text("Encendedor: " + encendedor, 10, 60);
+                pdf.text("Tapetes: " + tapetes, 10, 70);
+                pdf.text("Soat: " + soat, 10, 80);
+                pdf.text("Grua: " + grua, 10, 90);
+                pdf.text("Estado de llantas: " + estadoLlantas, 10, 100);
+                pdf.text("Llave de pernos: " + llavePernos, 10, 110);
+                pdf.text("Llanta de repuesto: " + llantaRepuesto, 10, 120);
+                pdf.text("Tapa de gasolina: " + tapaGasolina, 10, 130);
+                pdf.text("Herramientas: " + herramientas, 10, 140);
+                pdf.text("Kit de carretera: " + kitCarretera, 10, 150);
+    
+                var filename = 'Orden_' + placa.replace(/[^a-zA-Z0-9]/g, '') + '.pdf';
+                pdf.save(filename);
+                return false;
+            }
+        </script>
+</head>
+<body>
+    <div class="volver">
+        <a href="/ini">
+            <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i>
+        </a>
+    </div>
+    <div class="titulo">
+        <p> Gestión ordenes de trabajo </p>
+    </div>
+    <div class="container">
+        <form method="POST" action="/ORDEN.consultar">
+            <div class="search" name="Buscar">
+                <input type="text" name="txtBuscar" placeholder="Buscar">
+                <div class="btn">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </form>
+        <table class="table_usu">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Placa</th>
+                    <th>Descripción</th>
+                    <th>Radio</th>
+                    <th>Antena</th>
+                    <th>Encendedor</th>
+                    <th>Tapetes</th>
+                    <th>Soat</th>
+                    <th>Grua</th>
+                    <th>Estado de llantas</th>
+                    <th>Llave de pernos</th>
+                    <th>Llanta de repuesto</th>
+                    <th>Tapa de gasolina</th>
+                    <th>Herramientas</th>
+                    <th>Kit de carretera</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="datos">
+                {% if orden %}
+                    {% for orden_item in orden %}
+                        <tr id="{{ orden_item.id_orden }}">
+                            <td>{{ loop.index }}</td>
+                            <td id="placa_{{ orden_item.id_orden }}">{{ orden_item.placa }}</td>
+                            <td id="descripcion_{{ orden_item.id_orden }}">{{ orden_item.descripcion }}</td>
+                            <td id="radio_{{ orden_item.id_orden }}">{{ orden_item.radio }}</td>
+                            <td id="antena_{{ orden_item.id_orden }}">{{ orden_item.antena }}</td>
+                            <td id="encendedor_{{ orden_item.id_orden }}">{{ orden_item.encendedor }}</td>
+                            <td id="tapetes_{{ orden_item.id_orden }}">{{ orden_item.tapetes }}</td>
+                            <td id="soat_{{ orden_item.id_orden }}">{{ orden_item.soat }}</td>
+                            <td id="grua_{{ orden_item.id_orden }}">{{ orden_item.grua }}</td>
+                            <td id="estado_llantas_{{ orden_item.id_orden }}">{{ orden_item.estado_llantas }}</td>
+                            <td id="llave_pernos_{{ orden_item.id_orden }}">{{ orden_item.llave_pernos }}</td>
+                            <td id="llanta_repuesto_{{ orden_item.id_orden }}">{{ orden_item.llanta_repuesto }}</td>
+                            <td id="tapa_gasolina_{{ orden_item.id_orden }}">{{ orden_item.tapa_gasolina }}</td>
+                            <td id="herramientas_{{ orden_item.id_orden }}">{{ orden_item.herramientas }}</td>
+                            <td id="kit_carretera_{{ orden_item.id_orden }}">{{ orden_item.kit_carretera }}</td>
+                            <td>
+                                <div class="direct"> 
+                                    <a href="/ORDEN.editar/{{ orden_item.id_orden }}">
+                                        <i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i>
+                                    </a>
+                                    <a href="#" onclick="imprimir('{{ orden_item.placa }}', '{{ orden_item.descripcion }}', '{{ orden_item.radio }}', '{{ orden_item.antena }}', '{{ orden_item.encendedor }}', '{{ orden_item.tapetes }}', '{{ orden_item.soat }}', '{{ orden_item.grua }}', '{{ orden_item.estado_llantas }}', '{{ orden_item.llave_pernos }}', '{{ orden_item.llanta_repuesto }}', '{{ orden_item.tapa_gasolina }}', '{{ orden_item.herramientas }}', '{{ orden_item.kit_carretera }}', event)">
+                                        <i class="bi bi-printer" style="color: #ffffff;"></i>
+                                    </a>      
+                                </div> 
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="17">No se encontraron resultados</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+        <a href="/ORDEN.registrar">
+            <button class="registro">Crear Orden</button> 
+        </a>
+        <a href="#" onclick="generarReporteExcel()">
+            <button class="reporte">Generar Reporte</button> 
+        </a>
+    </div>
+</body>
+</html>
